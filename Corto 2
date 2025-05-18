@@ -1,0 +1,60 @@
+edad = int(input("¿Cuántos años tienes? "))
+if edad < 16: 
+print("Lo siento, necesitas tener al menos 16 años para comprar.")
+    exit()
+
+print("\nEres:")
+print("1. Estudiante (20% de descuento)")
+print("2. Profesional (10% de descuento)")
+print("3. Otro (sin descuento)")
+tipo = input("Elige (1-3): ")
+
+print("\nDispositivos disponibles:")
+
+if tipo == "1":
+    print("(20% de descuento)")
+    print("1. Laptop Básica - $900 → $720")
+    print("2. Tablet Estudiantil - $600 → $480")
+    print("3. Chromebook - $700 → $560")
+    precios = [720, 480, 560]
+    nombres = ["Laptop Básica", "Tablet Estudiantil", "Chromebook"]
+
+elif tipo == "2":
+    print("(10% de descuento)")
+    print("1. Laptop Avanzada - $1500 → $1350")
+    print("2. Tablet Pro - $1200 → $1080")
+    print("3. Estación de Trabajo - $2000 → $1800")
+    precios = [1350, 1080, 1800]
+    nombres = ["Laptop Avanzada", "Tablet Pro", "Estación de Trabajo"]
+
+else:
+    print("(Sin descuento)")
+    print("1. Laptop Básica - $900")
+    print("2. Tablet Estudiantil - $600")
+    print("3. Chromebook - $700")
+    print("4. Laptop Avanzada - $1500")
+    print("5. Tablet Pro - $1200")
+    print("6. Estación de Trabajo - $2000")
+    precios = [900, 600, 700, 1500, 1200, 2000]
+    nombres = ["Laptop Básica", "Tablet Estudiantil", "Chromebook", 
+              "Laptop Avanzada", "Tablet Pro", "Estación de Trabajo"]
+
+opcion = int(input("\nElige un dispositivo (número): ")) - 1
+precio = precios[opcion]
+dispositivo = nombres[opcion]
+
+saldo = 1000
+print(f"\nTu saldo es: ${saldo}")
+
+if saldo >= precio:
+    # Compra exitosa
+    saldo_restante = saldo - precio
+    print(f"¡Compra exitosa! Has comprado: {dispositivo}")
+    print(f"Tu saldo restante es: ${saldo_restante}")
+else:
+    # Saldo insuficiente
+    falta = precio - saldo
+    print("No tienes suficiente saldo.")
+    print(f"Te faltan ${falta} para comprar: {dispositivo}")
+
+print("\nGracias por usar nuestro sistema!")
